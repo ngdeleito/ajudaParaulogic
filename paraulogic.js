@@ -58,7 +58,8 @@ function removeDiacriticsAndDashes(word) {
              .replace(/[óò]/g, "o")
              .replace(/[úü]/g, "u")
              .replace(/\-se/g, "")
-             .replace(/\-/g, "");
+             .replace(/\-/g, "")
+             .replace(/·/g, "");
 }
 
 function extractMainWord(word) {
@@ -233,6 +234,7 @@ function testRemoveDiacriticsAndDashes() {
   console.log("tam-tam" + " " + removeDiacriticsAndDashes("tam-tam"));
   console.log("vis-a-vis" + " " + removeDiacriticsAndDashes("vis-a-vis"));
   console.log("arruar-se" + " " + removeDiacriticsAndDashes("arruar-se"));
+  console.log("il·lús" + " " + removeDiacriticsAndDashes("il·lús"));
 }
 
 function testExtractMainWord() {
