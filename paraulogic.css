@@ -1,0 +1,32 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/. */
+
+nav {
+  border: thin solid green;
+  padding: 0.2em;
+}
+
+.tab {
+  display: none;
+}
+
+.tab:target {
+  display: block;
+}
+
+p {
+  margin: 0;
+  text-align: center;
+  font-size: 5em;
+}
+
+textarea {
+  border-width: 0.1em;
+  padding: 0.2em;
+  max-width: calc(100% - 2 * (0.1em + 0.2em));
+}
+
+output {
+  white-space: pre-wrap;
+}

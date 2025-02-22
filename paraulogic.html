@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <!-- This Source Code Form is subject to the terms of the Mozilla Public
+     - License, v. 2.0. If a copy of the MPL was not distributed with this
+     - file, You can obtain one at https://mozilla.org/MPL/2.0/. -->
+  
+  <title>Ajuda per el Paraulògic</title>
+  <link rel="stylesheet" href="paraulogic.css" />
+  <script src="paraulogic.js"></script>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+</head>
+
+<body>
+  <nav>
+    <a href="#fusionar_resultats">Fusionar resultats</a>
+    <a href="#trobar_pistes">Trobar pistes</a>
+  </nav>
+  
+  <main>
+    <div id="home" class="tab">
+      <p>&#x1F99A;</p>
+    </div>
+    
+    <div id="fusionar_resultats" class="tab">
+      <form>
+        <div>
+          <input id="jugador1_nom" type="text" size="10"
+                 placeholder="Jugador 1" />
+          <textarea id="jugador1_paraules" cols="50" rows="10"></textarea>
+        </div>
+        <div>
+          <input id="jugador2_nom" type="text" size="10"
+                 placeholder="Jugador 2" />
+          <textarea id="jugador2_paraules" cols="50" rows="10"></textarea>
+        </div>
+        <button id="fusionarResultats" type="button">Fusionar</button>
+        <div>
+          <output id="resultats"></output>
+        </div>
+      </form>
+    </div>
+    
+    <div id="trobar_pistes" class="tab">
+      <form>
+        <textarea id="paraules" cols="50" rows="10"></textarea>
+        <button id="trobarPistes" type="button">Trobar pistes</button>
+        <div>
+          <output id="pistes"></output>
+        </div>
+      </form>
+    </div>
+  </main>
+</body>
+</html>
