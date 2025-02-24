@@ -84,10 +84,16 @@ class MapCounter {
     }
   }
   
-  toString() {
+  toSortedString() {
     return [...this.map.entries()]
              .map(([key, value]) => `${key}: ${value}`)
              .sort()
+             .join(", ");
+  }
+  
+  toString() {
+    return [...this.map.entries()]
+             .map(([key, value]) => `${key}: ${value}`)
              .join(", ");
   }
   
@@ -198,7 +204,7 @@ function findHints() {
   let hints = [
     `Has trobat ${words.length} paraules`,
     `${foundWordsToString()}`,
-    `Prefixos de dues lletres trobats: ${prefixes2.toString()}`,
+    `Prefixos de dues lletres trobats: ${prefixes2.toSortedString()}`,
     `Prefixos més freqüents de tres lletres trobats: ${prefixes3.top20Percent()}`,
     `Sufixos més freqüents de tres lletres trobats: ${suffixes3.top20Percent()}`,
     `Tens ${palindromes.length} ${palindromesText}: ${palindromes.join(", ")}`,
