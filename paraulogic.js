@@ -175,9 +175,12 @@ function processWord(word) {
 function foundWordsToString() {
   let maxLength = 0;
   let foundWordsAsMatrix = [...foundWords.entries()].map(([key, values]) => {
-    maxLength = values.length + 1 > maxLength ? values.length + 1 : maxLength;
-    return [key, ...values];
+    maxLength = values.length > maxLength ? values.length : maxLength;
+    let sum = values.reduce(
+      (currentSum, currentValue) => currentSum + currentValue, 0);
+    return [key, ...values, sum];
   });
+  maxLength += 2;
   
   let matrixAsStringArray = foundWordsAsMatrix.map(values => {
     let index = 0;
@@ -187,8 +190,9 @@ function foundWordsToString() {
     }
     return values.join("\t");
   });
-  matrixAsStringArray.unshift(["", ...Array.from({length: maxLength - 1},
-    (value, index) => index + 3)].join("\t"));
+  // add header row
+  matrixAsStringArray.unshift(["", ...Array.from({length: maxLength - 2},
+    (value, index) => index + 3), "∑"].join("\t"));
   
   return matrixAsStringArray.join("\n");
 }
