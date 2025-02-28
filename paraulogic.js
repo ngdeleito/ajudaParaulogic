@@ -13,7 +13,7 @@ function onLoadHandler() {
   document.getElementById("fusionarResultats")
           .addEventListener("click", mergeResults);
   document.getElementById("trobarPistes")
-          .addEventListener("click", findHints);
+          .addEventListener("click", pasteAndFindHints);
 }
 
 function onUnloadHandler() {
@@ -23,7 +23,7 @@ function onUnloadHandler() {
   document.getElementById("fusionarResultats")
           .removeEventListener("click", mergeResults);
   document.getElementById("trobarPistes")
-          .removeEventListener("click", findHints);
+          .removeEventListener("click", pasteAndFindHints);
 }
 
 function transformStringSequenceToListOfWords(aString) {
@@ -197,10 +197,10 @@ function foundWordsToString() {
   return matrixAsStringArray.join("\n");
 }
 
-function findHints() {
+function findHints(wordList) {
   init();
   
-  let words = transformStringSequenceToListOfWords(document.getElementById("paraules").value);
+  let words = transformStringSequenceToListOfWords(wordList);
   words.forEach(word => processWord(word));
   
   let palindromesText = palindromes.length === 1 ? "palíndrom" : "palíndroms";
@@ -216,6 +216,13 @@ function findHints() {
     `Subconjunts trobats: ${subsets.toString()}`
   ];
   document.getElementById("pistes").value = hints.join("\n\n");
+}
+
+function pasteAndFindHints() {
+  navigator.clipboard.readText().then((textToPaste) => {
+    document.getElementById("paraules").value = textToPaste;
+    findHints(textToPaste);
+  });
 }
 
 /// TESTS
