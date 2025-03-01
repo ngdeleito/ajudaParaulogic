@@ -184,10 +184,12 @@ function foundWordsToString() {
   
   let matrixAsStringArray = foundWordsAsMatrix.map(values => {
     let index = 0;
-    while (index < maxLength) {
+    let sum = values.pop();
+    while (index < maxLength - 1) {
       values[index] = values[index] === undefined ? 0 : values[index];
       ++index;
     }
+    values.push(sum);
     return values.join("\t");
   });
   // add header row
