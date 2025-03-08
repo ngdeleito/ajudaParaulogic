@@ -55,7 +55,7 @@ function removeDiacriticsAndDashes(word) {
   return word.replace(/à/g, "a")
              .replace(/[éè]/g, "e")
              .replace(/[íï]/g, "i")
-             .replace(/[óò]/g, "o")
+             .replace(/[óòö]/g, "o")
              .replace(/[úü]/g, "u")
              .replace(/\-se/g, "")
              .replace(/\-/g, "")
