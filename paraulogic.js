@@ -3,17 +3,41 @@
  * file, You can obtain one at https://mozilla.org/MPL/2.0/. */
 
 window.addEventListener("load", onLoadHandler);
+window.addEventListener("hashchange", onHashChangeHandler);
 window.addEventListener("unload", onUnloadHandler);
+
+function initializeSelectedTab() {
+  const tabLabels = ["fusionar_resultats_tab_label", "trobar_pistes_tab_label"];
+  let newTabLabel = document.location.hash.substring(1) + "_tab_label";
+  if (tabLabels.includes(newTabLabel)) {
+    document.getElementById(newTabLabel).classList.add("selectedTab");
+  }
+  else {
+    document.location.hash = "#home";
+  }
+}
 
 function onLoadHandler() {
   if (document.location.hash === "") {
     document.location.hash = "#home";
+  }
+  else {
+    initializeSelectedTab();
   }
   
   document.getElementById("fusionarResultats")
           .addEventListener("click", mergeResults);
   document.getElementById("trobarPistes")
           .addEventListener("click", pasteAndFindHints);
+}
+
+function onHashChangeHandler() {
+  let selectedTabLabelElement = document.getElementsByClassName("selectedTab")[0];
+  if (selectedTabLabelElement !== undefined) {
+    selectedTabLabelElement.removeAttribute("class");
+  }
+  initializeSelectedTab();
+  window.scrollTo(0, 0);
 }
 
 function onUnloadHandler() {

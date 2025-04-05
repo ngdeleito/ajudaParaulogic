@@ -2,9 +2,44 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at https://mozilla.org/MPL/2.0/. */
 
+body {
+  --paraulogic-blue: hsl(188.2, 49.3%, 59%);
+  
+  font-family: sans-serif;
+}
+
 nav {
-  border: thin solid green;
+  margin: 1em;
   padding: 0.2em;
+  text-align: center;
+}
+
+nav a {
+  border: solid 0.2em var(--paraulogic-blue);
+  border-right: none;
+  padding: 0.1em 0.25em;
+  color: var(--paraulogic-blue);
+  text-decoration: none;
+}
+
+nav a:first-child {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+nav a:last-child {
+  border-right: solid 0.2em var(--paraulogic-blue);
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+nav a:hover {
+  color: black;
+}
+
+nav .selectedTab {
+  background-color: var(--paraulogic-blue);
+  color: black;
 }
 
 .tab {
