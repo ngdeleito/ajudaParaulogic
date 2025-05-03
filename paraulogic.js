@@ -25,6 +25,10 @@ function onLoadHandler() {
     initializeSelectedTab();
   }
   
+  document.getElementById("enganxarResultatsJugador1")
+          .addEventListener("click", pasteResultsPlayer1);
+  document.getElementById("enganxarResultatsJugador2")
+          .addEventListener("click", pasteResultsPlayer2);
   document.getElementById("fusionarResultats")
           .addEventListener("click", mergeResults);
   document.getElementById("trobarPistes")
@@ -44,10 +48,28 @@ function onUnloadHandler() {
   window.removeEventHandler("load", onLoadHandler);
   window.removeEventHandler("unload", onUnloadHandler);
   
+  document.getElementById("enganxarResultatsJugador1")
+          .removeEventListener("click", pasteResultsPlayer1);
+  document.getElementById("enganxarResultatsJugador2")
+          .removeEventListener("click", pasteResultsPlayer2);
   document.getElementById("fusionarResultats")
           .removeEventListener("click", mergeResults);
   document.getElementById("trobarPistes")
           .removeEventListener("click", pasteAndFindHints);
+}
+
+function pasteResultsForPlayer(textareaId) {
+  navigator.clipboard.readText().then((textToPaste) => {
+    document.getElementById(textareaId).value = textToPaste;
+  });
+}
+
+function pasteResultsPlayer1() {
+  pasteResultsForPlayer("jugador1_paraules");
+}
+
+function pasteResultsPlayer2() {
+  pasteResultsForPlayer("jugador2_paraules");
 }
 
 function transformStringSequenceToListOfWords(aString) {
