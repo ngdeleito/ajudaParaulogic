@@ -6,12 +6,14 @@ body {
   --paraulogic-blue: hsl(188.2, 49.3%, 59%);
   
   font-family: sans-serif;
+  font-size: 14px;
 }
 
 nav {
   margin: 1em;
   padding: 0.2em;
   text-align: center;
+  font-size: 16px;
 }
 
 nav a {
@@ -62,11 +64,11 @@ textarea {
   max-width: calc(100% - 2 * (0.1em + 0.2em));
 }
 
-output {
-  white-space: pre-wrap;
-}
-
-textarea, output {
+input, textarea {
   font-family: monospace;
   font-size: 13px;
+}
+
+output {
+  white-space: pre-wrap;
 }
