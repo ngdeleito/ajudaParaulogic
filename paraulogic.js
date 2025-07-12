@@ -60,7 +60,7 @@ function onUnloadHandler() {
 
 function pasteResultsForPlayer(textareaId) {
   navigator.clipboard.readText().then((textToPaste) => {
-    document.getElementById(textareaId).value = textToPaste;
+    document.getElementById(textareaId).value = decodeURI(textToPaste);
   });
 }
 
