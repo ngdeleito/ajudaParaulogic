@@ -95,7 +95,8 @@ function mergeResults() {
   document.getElementById("resultats").value =
     `${player1Name}: ${Array.from(missingWordsFor1).join(", ")}\n\n` +
     `${player2Name}: ${Array.from(missingWordsFor2).join(", ")}`;
-  navigator.clipboard.writeText(document.getElementById("resultats").value);
+  let results = document.getElementById("resultats").value;
+  navigator.clipboard.writeText(decodeURI(results));
 }
 
 function removeDiacriticsAndDashes(word) {
